@@ -23,7 +23,7 @@ def main():
 
 	# 3 BUILD OUTPUT
 	for person in people[:10]:
-		print("Name: {}".format(person.name)) # just for testing purposes
+		print("Id: {} Name: {} Score: {}".format(person.person_id, person.name, person.score)) # just for testing purposes
 	output = open('people.out','w')
 	for person in people[:10]:
 		output.write(person.person_id + '\n')
@@ -47,7 +47,7 @@ class Person:
 	industry = ''
 	recommendations_qty = 0
 	connections_qty = 0
-	score = 0
+	score = 0.0
 
 	def __init__(self, person_id, name, last_name, current_role, country, industry, recommendations_qty, connections_qty):
 		self.person_id = person_id.strip()
@@ -58,7 +58,7 @@ class Person:
 		self.industry = industry.strip()
 		self.recommendations_qty = int(recommendations_qty.strip() or 0)
 		self.connections_qty = int(connections_qty.strip() or 0)
-		self.score = ((self.recommendations_qty - 5) / 2 * 7 + (self.connections_qty - 300) / 50 * 3) / 10
+		self.score = ((self.recommendations_qty - 5) / 2.0 * 7.0 + (self.connections_qty - 300) / 50.0 * 3.0) / 10.0
 
 if __name__ == '__main__':
 	main()
